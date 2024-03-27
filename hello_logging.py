@@ -4,10 +4,30 @@ import logging
 logger = logging.getLogger(__name__)
 
 # Configure logging
-logging.basicConfig(filename="app.log", filemode="w", format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 
-try:
-    # Some code that may raise an exception
-    result = 1 / 0
-except Exception as e:
-    logger.exception("An error occurred: %s", e)
+# Create file handler
+file_handler = logging.FileHandler("app.log")
+file_handler.setLevel(logging.INFO)
+
+# Create console handler
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.DEBUG)
+
+# Create a custom formatter
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+
+# Set the formatter for the handlers
+file_handler.setFormatter(formatter)
+console_handler.setFormatter(formatter)
+
+# Add the handlers to the logger
+logger.addHandler(file_handler)
+logger.addHandler(console_handler)
+
+# Log some messages
+logger.debug("This is a debug message")
+logger.info("This is an info message")
+logger.warning("This is a warning message")
+logger.error("This is an error message")
+logger.critical("This is a critical message")
