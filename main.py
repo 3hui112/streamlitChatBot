@@ -1,4 +1,8 @@
 import streamlit as st
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO)
 
 st.title("Streamlit Conversation App")
 
@@ -31,3 +35,6 @@ if prompt:
 
     # add the echo message to chat history
     st.session_state.messages.append({"role":"assistant","content":response})
+
+    logging.info({"role": "user", "content": prompt})
+    logging.info({"role":"assistant","content":response})

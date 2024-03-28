@@ -1,1 +1,10 @@
-2024-03-26 21:41:33,457 - Hello, logging world! Logged to file.
+2024-03-26 21:50:53,182 - __main__ - ERROR - An error occurred: division by zero
+Traceback (most recent call last):
+  File "/Users/sehui/Desktop/SM/24-1/비교과/2024학년도_SW산학협력프로젝트/2주차/streamlitChatBot/hello_logging.py", line 11, in <module>
+    result = 1 / 0
+             ~~^~~
+ZeroDivisionError: division by zero
+2024-03-26 23:50:33,050 - __main__ - INFO - This is an info message
+2024-03-26 23:50:33,050 - __main__ - WARNING - This is a warning message
+2024-03-26 23:50:33,050 - __main__ - ERROR - This is an error message
+2024-03-26 23:50:33,050 - __main__ - CRITICAL - This is a critical message
